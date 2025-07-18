@@ -3,6 +3,7 @@ import Button from "./Button";
 import "./EatSplit.css";
 import FormAddFriends from "./FormAddFriends,";
 import FriendsList from "./FriendsList";
+import FormSplitBill from "./FormSplitBill";
 
 const initialFriends = [
   {
@@ -43,6 +44,18 @@ export default function EatSplit() {
     setShowAddFriend(false);
   }
 
+  function handleSplitBill(value) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+
+    setSelectedFriend(null);
+  }
+
   return (
     <div className="eat">
       <div className="sidebar">
@@ -56,26 +69,12 @@ export default function EatSplit() {
           {showAddFriend ? "Close" : "Add friend"}
         </Button>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+      {selectedFriend && (
+        <FormSplitBill
+          selectedFriend={selectedFriend}
+          handleSplitBill={handleSplitBill}
+        />
+      )}
     </div>
-  );
-}
-
-function FormSplitBill({ selectedFriend }) {
-  return (
-    <form className="form-split-bill">
-      <h2>Split a bill with {selectedFriend.name}</h2>
-      <label>💰 Bill value</label>
-      <input type="text" />
-      <label>🧍‍♀️ Your expense</label> <input type="text" />
-      <label>👫 {selectedFriend.name}'s expense</label>{" "}
-      <input type="text" disabled />
-      <label>🤑 Who is paying the bill</label>
-      <select>
-        <option value="you">You</option>{" "}
-        <option value="friend">{selectedFriend.name}</option>
-      </select>
-      <Button>Split bill</Button>
-    </form>
   );
 }
