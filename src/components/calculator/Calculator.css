@@ -1,29 +1,3 @@
-body {
-  font-size: 2.4rem;
-  font-family: sans-serif;
-  color: #5a3e2b;
-  font-family: "Quicksand";
-  font-weight: 500;
-}
-*/ .app {
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-}
-
-h1 {
-  text-align: center;
-  background-color: #f4a226;
-  font-family: "Monoton";
-  font-size: 8rem;
-  text-transform: uppercase;
-  font-weight: 400;
-  word-spacing: 30px;
-  letter-spacing: -5px;
-  padding: 2.4rem 0;
-}
-
 .add-form {
   background-color: #e5771f;
   padding: 2.8rem 0;

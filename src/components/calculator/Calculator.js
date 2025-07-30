@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BillInput from "./BillInput";
 import SelectPercentage from "./SelectPercentage";
+import "./Calculator.css";
 
 export default function Calculator() {
   const [bill, setBill] = useState("");
